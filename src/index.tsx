@@ -4,15 +4,13 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import reportWebVitals from './reportWebVitals';
 
-import App from './App';
+import App from './layouts/App/App';
 
 import Welcome from "./pages/Welcome/Welcome";
 import Contact from "./pages/Contact/Contact";
 import Persistence from "./pages/Persistence/Persistence";
 import Patches from "./pages/Patches/Patches";
 import Sense from "./pages/Sense/Sense";
-
-import './index.css';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
