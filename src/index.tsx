@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import App from './layouts/App/App';
 
-import Welcome from "./pages/Welcome/Welcome";
+import Welcome from "./pages/Welcome";
 import Contact from "./pages/Contact/Contact";
 import Persistence from "./pages/Persistence/Persistence";
 import Patches from "./pages/Patches/Patches";

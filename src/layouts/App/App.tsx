@@ -32,8 +32,8 @@ function App() {
 
 
   return (
-    <div className="bg-slate-100 dark:bg-black flex flex-col justify-center">
-      <header className="bg-white dark:bg-slate-800">
+    <div>
+      <header className="bg-purple-100 dark:bg-slate-800">
         <Link to="/"><h1 className="text-black dark:text-white font-3xl">Rho Technologies</h1></Link>
         <input 
           type="checkbox" 
@@ -44,16 +44,16 @@ function App() {
           }}
         />
       </header>
-      <nav className="flex flex-row justify-evenly">
-        <Link to="/persistence"><h3>Persistence</h3></Link>
-        <Link to="/patches"><h3>Patches</h3></Link>
-        <Link to="/sense"><h3 className="text-red">Sense</h3></Link>
+      <nav className="bg-slate-700 dark:bg-slate-300 flex flex-row justify-evenly p-2">
+        <Link to="/persistence" className="m-2 text-bold text-slate-900 dark:text-slate-100"><h3>Persistence</h3></Link>
+        <Link to="/patches" className="m-2 text-bold text-slate-900 dark:text-slate-100"><h3>Patches</h3></Link>
+        <Link to="/sense" className="m-2 text-bold text-slate-900 dark:text-slate-100"><h3>Sense</h3></Link>
       </nav>
       <section className="">
         <Outlet />
       </section>
       <footer className="flex flex-col justify-start m-2">
-        <p className="font-bold">Rho Technologies Ltd</p>
+        <p className="text-bold">Rho Technologies Ltd</p>
         <Link to="/contact">Contact</Link>
       </footer>
     </div>
