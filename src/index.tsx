@@ -7,10 +7,10 @@ import reportWebVitals from './reportWebVitals';
 import App from './App';
 
 import Welcome from "./pages/Welcome";
-import Contact from "./pages/Contact/Contact";
-import Persistence from "./pages/Persistence/Persistence";
-import Patches from "./pages/Patches/Patches";
-import Sense from "./pages/Sense/Sense";
+import Contact from "./pages/Contact";
+import Persistence from "./pages/Persistence";
+import Patches from "./pages/Patches";
+import Sense from "./pages/Sense";
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
