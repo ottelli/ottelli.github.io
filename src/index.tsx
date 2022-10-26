@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 import reportWebVitals from './reportWebVitals';
 
-import App from './layouts/App/App';
+import App from './App';
 
 import Welcome from "./pages/Welcome/Welcome";
 import Contact from "./pages/Contact/Contact";

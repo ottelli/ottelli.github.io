@@ -33,7 +33,7 @@ module.exports = {
       indigo: colors.indigo,
       violet: colors.violet,
       purple: colors.purple,
-      red: "#00ff00",
+      red: colors.red,
     },
     columns: {
       auto: 'auto',
