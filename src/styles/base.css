@@ -12,6 +12,36 @@ code {
     monospace;
 }
 
-h1,h2,h3,h4,h5,h6 {
+/* h1,h2,h3,h4,h5,h6 {
   @apply text-slate-700 dark:text-violet-50
+} */
+
+h1 {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: normal;
+}
+
+h3 {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+h4 {
+  font-size: 1.6rem;
+  font-weight: light;
+}
+
+h5 {
+  font-weight: 1.3rem;
+  font-weight: bold;
+}
+
+h6 {
+  font-size: 1.3rem;
+  font-weight: light;
 }

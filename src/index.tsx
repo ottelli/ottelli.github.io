@@ -6,12 +6,6 @@ import reportWebVitals from './reportWebVitals';
 
 import App from './App';
 
-import Welcome from "./pages/Welcome";
-import Contact from "./pages/Contact";
-import Persistence from "./pages/Persistence";
-import Patches from "./pages/Patches";
-import Sense from "./pages/Sense";
-
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
@@ -20,11 +14,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}>
-          <Route index element={<Welcome />} />
-          <Route path="contact" element={<Contact />} />
-          <Route path="persistence" element={<Persistence />} />
-          <Route path="patches" element={<Patches />} />
-          <Route path="sense" element={<Sense />} />
+          {/* <Route index element={<Welcome />} /> */}
+          {/* <Route path="contact" element={<Contact />} /> */}
           <Route path="*" element={<h5>404 - Nothing here</h5>} />
         </Route>
       </Routes>
