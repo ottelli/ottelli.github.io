@@ -1,0 +1,49 @@
+
+
+
+
+h2 {
+  font-size: 1.8rem;
+  font-weight: light;
+}
+
+h3 {
+  font-size: 1.6rem;
+  font-weight: normal;
+}
+
+h4 {
+
+}
+
+h5 {
+  font-size: 1.3rem;
+  font-weight: bold;
+  font-style: italic;
+}
+
+h6 {
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
+p {
+
+}
+
+ul {
+  list-style-type:circle;
+  list-style-position: inside;
+}
+
+li {
+
+}
+
+.timeline-entry {
+
+}
+
+.timeline-entry.show {
+
+}
