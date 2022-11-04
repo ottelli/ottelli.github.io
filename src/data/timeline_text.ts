@@ -4,14 +4,7 @@ export interface ITimelineEntry {
   short: string,
   question: string,
   method: {[step:string]:string|string[]},
-  current?:{
-    progress:string[],
-    next:string[],
-  },
-  complete?:{
-    conclusion:string[],
-    reflection:string[],
-  },
+  status:{[section:string]:string|string[]}
 }
 
 
@@ -32,11 +25,11 @@ export const timeline_text:ITimelineEntry[] = [
       'Frontend UI': 'React 18 function components, written in TypeScript, packaged with Vite, and hosted on Firebase.',
       'Styles': 'Bootstrap -> Plan CSS -> Sass -> .module.css -> CSS-in-JS - (this site is with TailWind, my favourite is a 70-20-10 with Sass, .module, CSS-in-JS)',
     },
-    current: {
-      progress: [
+    status: {
+      'Progress': [
         '',
       ],
-      next: [
+      'Next': [
         '',
       ],
     }
@@ -50,33 +43,33 @@ export const timeline_text:ITimelineEntry[] = [
         'Python',
       ]
     },
-    complete: {
-      conclusion: [
+    status: {
+      'Conclusion': [
         'It\' was possible!',
       ],
-      reflection: [
+      'Reflection': [
         'Classes, Dictionaries, List Comprehension, if for while',
       ],
     },
   },
   { title: 'Masters Degree Thesis Project',
-    date: 'June 2018',
+    date: 'Jun 2018',
     short: 'MSc Sports Engineering with Distinction',
     question: 'Can non-linearities in gait predict running economy?',
     method: {
       'Stack': [
         'IMU',
-        'Matlab',
+        'MATLAB',
       ],
-      'Experiement': 'Recruited [n] people. Gas analysis + Gait analysis.',
+      'Experiment': 'Recruited [n] people. Gas analysis + Gait analysis.',
       'Analysis': 'Vectorisation. DFA. SampEnt.',
     },
-    complete: {
-      conclusion: [
+    status: {
+      'Conclusion': [
         'Everyone has a velocity-variability sweet-spot in their running gait, which is most efficient for them.',
         'U-shape Function (possiblty J-shape). Expert is shifted to the right, and wider trough',
       ],
-      reflection: [
+      'Reflection': [
         'Consequent Hypotheses: Adaptation to terrain.',
       ],
     },
@@ -91,14 +84,13 @@ export const timeline_text:ITimelineEntry[] = [
       ],
       'Brief': 'Help a sports injury, with technology.',
       'Solution': 'A camera purchased by gyms, placed to the side when deadlifting. Together with an Android app to give live feedback and record sessions.',
+      'Team Role': 'I handled the financial plan and app design',
     },
-    complete: {
-      conclusion: [
+    status: {
+      'Conclusion': [
         ''
       ],
-      reflection: [
-        ''
-      ],
+      'Reflection': 'Although I was initially dissapointed to miss the personal opportunity to build the vision system for this project, I was satisfied with learning many of the business aspects that were not available elsewhere in the course content.',
     },
   },
   { title: 'Matlab Table Tennis Simulator',
@@ -112,13 +104,13 @@ export const timeline_text:ITimelineEntry[] = [
       'Simulation': 'The physics of Tabble Tennis can be divied into two states: flight and impact. In flight, the trajectory of a [x]cm, [y]g smooth projectile is strongly subjected to spin forces, Magnus forces, [...]. The hardness of both table and ball contribute to one of the briefest impacts in sport, but still surface and deformation effects are highly influential.',
       'GUI': 'From starting position, strike angle and outgoing velocity, animate and trace the balls flight across the table, then then display flight time and end velocity at the opponent.',
     },
-    complete: {
-      conclusion: [
+    status: {
+      'Conclusion': [
         'Drop Shots',
         'More time',
         'Running game',
       ],
-      reflection: [
+      'Reflection': [
         'Looked great on workstation, almost killed my laptop.',
         'Got highest mark on assignment.',
       ],
@@ -137,13 +129,13 @@ export const timeline_text:ITimelineEntry[] = [
       'Experiment': 'I recruited [n] people to run 3 laps of ~12min around a local park. Each time wearing a different design of shoe. Using an IMU, I measured accelerations at the top of the shin.',
       'Analysis': 'I wrote a MATLAB script to; apply a high- and low-pass filter, detect peaks, and plot the result.<br />To model the effects on the bones, I constructed a free body diagram, and input values from medical journal papers.<br />Finally, I [calculated / ~] a factorial analysis, [with factors such as] bone density, weight, speed of bone remodelling... , to provide context for the differences in shock between the shoes.',
     },
-    complete: {
-      conclusion: [
+    status: {
+      'Conclusion': [
         'More foam on the shoe, less shock through the shin',
         'Materials are <strong>very</strong> important',
         'Shoes are the [x] principal component, and account for [y]% of the variance in total strain on the lower leg.'
       ],
-      reflection: [
+      'Reflection': [
         '',
       ],
     },

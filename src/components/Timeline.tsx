@@ -1,25 +1,18 @@
 import { ITimelineEntry } from "../data/timeline_text"
-import './Timeline.css'
+import TechStack from "./TechStack"
+// import './Timeline.css'
 
 const Timeline = (props: { entries:ITimelineEntry[] }) => {
 
   return (
-    <section className="px-4 py-8 text-slate-800 dark:text-slate-200 bg-green-50 dark:bg-slate-700"
-      style={{
-        width: '100%',
-        display: 'flex',
-        flexFlow: 'column',
-        justifyContent: 'center',
-        // padding: '10vw',
-      }}
-    >
-      <h1
-        style={{fontSize: '1.8rem', fontWeight: 'bold'}}
-      >
+    <section className="w-full flex flex-col items-center px-4 py-8 prose max-w-none dark:prose-invert prose-headings prose-p bg-violet-50 dark:bg-slate-900">
+      <h1>
         Timeline
       </h1>
       {
-        props.entries.map(entry => <TimelineEntry key={entry.title} {...entry} />)
+        props.entries.map(entry => (
+          <TimelineEntry key={entry.title} {...entry} />
+        ))
       }
     </section>
   )
@@ -30,189 +23,87 @@ export default Timeline
 const TimelineEntry = (props:ITimelineEntry) => {
 
   return (
-    <div className=""
-      style={{
-        width: '100%',
-        display: 'grid',
-        grid: '8ch auto / repeat(11, 1fr)',
-        borderBottom: '1px solid grey',
-        margin: '1rem 0',
-        padding: '.5rem 0',
-        alignItems: 'center',
-      }}
-    >
-      <h3 className="my-2 text-slate-600 dark:text-slate-400"
-        style={{
-          gridColumn: '1 / 3',
-          width: '66%',
-          justifySelf: 'center',
-          borderRadius: '1ch',
-          backgroundColor: 'green',
-          padding: '.5ch',
-          color: 'white',
-          textAlign: 'center',
-        }}
-      >
+    <div className="w-10/12 grid grid-cols-11 grid-auto-rows items-center my-4 mx-0 py-4 px-0 border-b border-dotted border-slate-500">
+      
+      {/* First Row */}
+
+      <h4 className="col-start-1 col-end-3 w-2/3 justify-self-center my-2 p-1 rounded text-center font-normal text-white bg-green-600">
         {props.date}
-      </h3>
-      <h2 style={{gridColumn: '3 / 5'}}>
+      </h4>
+
+      <h2 className="col-start-3 col-end-6 font-normal">
         {props.title}
       </h2>
-      <h3
-        style={{
-          gridColumn: '6 / 12',
-          fontStyle: 'italic',
-        }}
-      >
+
+      <h3 className="col-start-6 col-end-12 font-light italic">
         {props.short}
       </h3>
-      <h6 
-        style={{
-          gridColumn: '1 / 3',
-          padding: '2rem',
-        }}
-      >
-        <strong>Question:</strong> {props.question}
+
+      {/* Second Row */}
+
+      <h6 className="col-start-1 col-end-3 p-8">
+        <b>Question:</b> {props.question}
       </h6>
 
-      {/* Details */}
-      <div className="flex flex-col"
-        style={{
-          gridColumn: '3 / 8',
-        }}
-      >
-        {
-          Object.entries(props.method).map(([name, text]) => <MethodStep name={name} text={text} />)
-        }
+      <div className="col-start-3 col-end-8 h-full">
+        <Method {...props.method} />
       </div>
 
-      {/* Project Status */}
-      <Current text={props.current} />
-      <Complete text={props.complete} />
+      <div className="col-start-8 col-end-12 h-full">
+        <ProjectStatus {...props.status} />
+      </div>
     </div>
   )
 }
 
 
+const Method = (props:{[step:string]:string|string[]}) => (
+  <div className="prose flex flex-col">
+    {
+      Object.entries(props).map(([name, text]) => (
+        <>
+          <h5 className="font-bold italic">{name}</h5>
+          {
+            text instanceof Array // 'Stack'
+            ?
+            <div className="mb-6">
+              <TechStack items={text} />
+            </div>
+            :
+            <p className="mt-0">{text}</p>
+          }
+        </>
+      ))
+    }
+  </div>
+)
 
-const MethodStep = (props:{
-  name:string,
-  text:string|string[],
+
+
+const ProjectStatus = (props:{
+  [section:string]:string|string[]
 }) => {
-
+  
   return (
-    <div className="flex flex-col"
-      style={{
-        
-      }}
-    >
-      <h5>{props.name}</h5>
+    <div className="h-full flex flex-col justify-evenly ml-4 pl-4 border-l border-slate-400 dark:border-slate-600">
       {
-        props.text instanceof Array
-        ?
-          <div className="flex flex-row"
-            style={{
-              flexFlow: 'row wrap',
-            }}
-          >
+        Object.entries(props).map(([name, text]) => (
+          <div key={name}>
+            <h5 className="font-bold">{name}</h5>
             {
-              props.text.map(item => (
-                <p key={item} 
-                  style={{
-                    margin:'0 .1rem',
-                    padding: '0 .5rem',
-                    border:'1px solid grey',
-                    borderRadius: '6px',
-                    backgroundColor:'black',
-                    color:'white'
-                  }}
-                >{item}</p>
-              ))
+              text instanceof Array
+              ?
+              <ul className="list-outside list-disc my-0">
+                {text.map((point, i) => (
+                    <li key={i}>{point}</li>
+                ))}
+              </ul>
+              :
+              <p>{text}</p>
             }
           </div>
-        :
-        <p>{props.text}</p>
+        ))
       }
-    </div>
-  )
-}
-
-
-
-const Current = (props:{
-  text?:{
-    progress:string[],
-    next:string[],
-  }
-}) => {
-  if (props.text === undefined) return <></>
-  
-  return (
-    <div className="flex flex-col"
-      style={{
-        gridColumn: '8 / 12',
-        justifyContent: 'space-evenly',
-        height: '100%',
-      }}
-    >
-      <div>
-        <h6>
-          Progress
-        </h6>
-        {
-          props.text.progress.map((text, i) => <p key={i}>{text}</p>)
-        }
-      </div>
-      <div>
-        <h6>
-          Next Steps
-        </h6>
-        <ul>
-        {
-          props.text.next.map((text, i) => <li key={i}>{text}</li>)
-        }
-        </ul>
-      </div>
-    </div>
-  )
-}
-
-
-
-const Complete = (props:{
-  text?:{
-    conclusion:string[],
-    reflection:string[],
-  }
-}) => {
-  if (props.text === undefined) return <></>
-  
-  return (
-    <div className="flex flex-col"
-      style={{
-        gridColumn: '8 / 12',
-        justifyContent: 'space-evenly',
-        height: '100%',
-      }}
-    >
-      <div>
-        <h6>
-          Conclusion
-        </h6>
-        <ul>
-          {
-            props.text.conclusion.map((text, i) => <li key={i}>{text}</li>)
-          }
-        </ul>
-      </div>
-      <div>
-        <h6>
-          Reflection
-        </h6>
-        {
-          props.text.reflection.map((text, i) => <p key={i}>{text}</p>)
-        }
-      </div>
     </div>
   )
 }
@@ -220,11 +111,10 @@ const Complete = (props:{
 
 const SVG = () => {
   return (
-    <svg width="100%" height="100%" viewBox="0 0 30 100"
-      style={{
-        gridRowStart: 1,
-        gridRowEnd: 2,
-      }}
+    <svg 
+      width="100%" height="100%" 
+      viewBox="0 0 30 100"
+      className="row-start-1 row-end-2"
     >
       <line x1="7" y1="0" x2="7" y2="40" style={{stroke:'rgb(0,0,255)',strokeWidth:'4px'}} />
       <line x1="7" y1="60" x2="7" y2="100" style={{stroke:'rgb(0,0,255)',strokeWidth:'4px'}} />

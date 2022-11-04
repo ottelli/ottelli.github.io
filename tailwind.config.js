@@ -289,6 +289,47 @@ module.exports = {
       '2xl': '0 25px 25px rgb(0 0 0 / 0.15)',
       none: '0 0 #0000',
     },
+    extend: {
+      typography: ({ theme }) => ({
+        DEFAULT: {
+          css: {
+            color: theme('colors.slate.700'),
+            h1: {
+              fontSize: theme('fontSize.3xl'),
+              // fontWeight: theme('fontWeight.normal'),
+              margin: 0,
+            },
+            h2: {
+              fontSize: theme('fontSize.2xl'),
+              // fontWeight: theme('fontWeight.normal'),
+              margin: 0,
+            },
+            h3: {
+              fontSize: theme('fontSize.2xl'),
+              // fontWeight: theme('fontWeight.light'),
+              // fontStyle: 'italic',
+              margin: 0,
+            },
+            h4: {
+              fontSize: theme('fontSize.xl'),
+              // fontWeight: theme('fontWeight.bold'),
+              margin: 0,
+            },
+            h5: {
+              fontSize: theme('fontSize.xl'),
+              // fontWeight: theme('fontWeight.light'),
+              // fontStyle: 'italic',
+              margin: 0,
+            },
+            h6: {
+              fontSize: theme('fontSize.lg'),
+              // fontWeight: theme('fontWeight.bold'),
+              margin: 0,
+            },
+          }
+        }
+      }),
+    },
     fill: ({ theme }) => ({
       none: 'none',
       ...theme('colors'),
@@ -961,5 +1002,7 @@ module.exports = {
     'active',
     'disabled',
   ],
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 }
