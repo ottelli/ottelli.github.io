@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import reportWebVitals from './reportWebVitals';
 
 import App from './App';
+import Dev from './Dev';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -18,6 +19,7 @@ root.render(
           {/* <Route path="contact" element={<Contact />} /> */}
           <Route path="*" element={<h5>404 - Nothing here</h5>} />
         </Route>
+        <Route path="/dev" element={<Dev />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

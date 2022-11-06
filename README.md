@@ -1,9 +1,4 @@
-# Rho Tech Site Repository
+# Portfolio Site
+## Elliott Cheesman @ottelli
 
-## Stack
-
-* React Typescript
-* Tailwind CSS
-* Firebase Hosting
-
-* Interacts with rho-tech-api written in Go-Gin
+Sports Technology, Engineering, Software.

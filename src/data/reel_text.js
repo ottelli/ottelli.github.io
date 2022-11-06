@@ -2,7 +2,7 @@ const reel_text = [
   {
     title: 'Persistence',
     img_src: 'assets/persistence-brand.svg',
-    stack: ['React', 'TypeScript', 'Python', 'Sass'],
+    stack: ['Python', 'Flask', 'TypeScript', 'React', 'Redux', 'Sass'],
     description: 'Training Calendar App'
   },
   {

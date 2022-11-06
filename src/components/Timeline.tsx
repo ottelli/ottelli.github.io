@@ -27,7 +27,7 @@ const TimelineEntry = (props:ITimelineEntry) => {
       
       {/* First Row */}
 
-      <h4 className="col-start-1 col-end-3 w-2/3 justify-self-center my-2 p-1 rounded text-center font-normal text-white bg-green-600">
+      <h4 className="col-start-1 col-end-3 w-2/3 justify-self-center my-2 p-1 rounded text-center font-normal text-white bg-gradient-to-tr from-green-700 to-green-500 shadow-md shadow-green-300 dark:shadow-slate-900">
         {props.date}
       </h4>
 
@@ -39,13 +39,26 @@ const TimelineEntry = (props:ITimelineEntry) => {
         {props.short}
       </h3>
 
-      {/* Second Row */}
 
-      <h6 className="col-start-1 col-end-3 p-8">
+      {/* Spacer */}
+      <span className="col-start-1 col-end-12 h-8" />
+
+      {/* Second Content Row */}
+
+      <h6 className="col-start-1 col-end-6">
         <b>Question:</b> {props.question}
       </h6>
 
-      <div className="col-start-3 col-end-8 h-full">
+      <div className="col-start-6 col-end-12">
+        <TechStack items={props.stack} />
+      </div>
+
+      {/* Spacer */}
+      <span className="col-start-1 col-end-12 h-8" />
+
+      {/* Third Content Row */}
+
+      <div className="col-start-1 col-end-8 h-full">
         <Method {...props.method} />
       </div>
 
