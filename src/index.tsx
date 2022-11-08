@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import App from './App';
 import Dev from './Dev';
+import ContactPage from './components/ContactModal';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -16,7 +17,6 @@ root.render(
       <Routes>
         <Route path="/" element={<App />}>
           {/* <Route index element={<Welcome />} /> */}
-          {/* <Route path="contact" element={<Contact />} /> */}
           <Route path="*" element={<h5>404 - Nothing here</h5>} />
         </Route>
         <Route path="/dev" element={<Dev />} />

@@ -27,7 +27,7 @@ const DarkBtn = () => {
 
   return (
     <span
-      className="absolute top-6 right-6 w-8 h-8 cursor-pointer"
+      className="cursor-pointer"
       onClick={() => {
         setDark(!isDark)
       }}

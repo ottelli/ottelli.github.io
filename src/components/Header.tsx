@@ -8,12 +8,13 @@ const Header = () => {
         <h1 className="text-[2.5rem]">
           Elliott Cheesman
         </h1>
-        <h5 className="italic text-slate-400">
+        <h5 className="italic text-slate-400 dark:text-slate-200">
           Sports Technology, Engineering, Software.
         </h5>
 
-        {/* Absolute top right */}
-        <DarkBtn />
+        <div className="absolute top-6 right-6 h-8 w-8">
+          <DarkBtn />
+        </div>
       </header>
   )
 }

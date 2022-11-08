@@ -1,12 +1,5 @@
-export interface ITimelineEntry {
-  title: string,
-  date: string,
-  short: string,
-  question: string,
-  stack: string[],
-  method: {[step:string]:string|string[]},
-  status:{[section:string]:string|string[]},
-}
+import { ITimelineEntry } from "../components/Timeline"
+
 
 
 export const timeline_text:ITimelineEntry[] = [
@@ -34,6 +27,25 @@ export const timeline_text:ITimelineEntry[] = [
       'Next': [
         '',
       ],
+    }
+  },
+  { title: 'Rho Technologies Website',
+    date: 'Oct 2022',
+    short: 'Business Website',
+    question: '?',
+    stack: [
+      'Go',
+      'TypeScript',
+      'React',
+      'Tailwind',
+    ],
+    method: {
+      'Backend API': 'Written in Go with the Gin web framework.',
+      'Frontend UI': 'Written in TypeScript with React, packaged with Webpack, styled with TailwindCSS, hosted on Firebase.',
+    },
+    status: {
+      'Progress': '',
+      'Next': '',
     }
   },
   { title: 'First Python Code',
@@ -131,7 +143,7 @@ export const timeline_text:ITimelineEntry[] = [
     ],
     method: {
       'Experiment': 'I recruited [n] people to run 3 laps of ~12min around a local park. Each time wearing a different design of shoe. Using an IMU, I measured accelerations at the top of the shin.',
-      'Analysis': 'I wrote a MATLAB script to; apply a high- and low-pass filter, detect peaks, and plot the result.<br />To model the effects on the bones, I constructed a free body diagram, and input values from medical journal papers.<br />Finally, I [calculated / ~] a factorial analysis, [with factors such as] bone density, weight, speed of bone remodelling... , to provide context for the differences in shock between the shoes.',
+      'Analysis': 'I wrote a MATLAB script to; apply a high- and low-pass filter, detect peaks, and plot the result.<br />To model the effects on the bones, I constructed a free body diagram, and input values from medical journal papers.<br />Finally, I conducted a factorial analysis, [with factors such as] bone density, weight, speed of bone remodelling... , to provide context for the differences in shock between the shoes.',
     },
     status: {
       'Conclusion': [
