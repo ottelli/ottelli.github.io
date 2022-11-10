@@ -12,34 +12,33 @@ interface IReelCard {
 const Reel = (props:{ entries: IReelCard[] }) => {
 
   return (
-    <section className="max-w-none flex flex-row justify-center py-20 px-16 bg-slate-300 dark:bg-slate-700 prose">
+    <section className="flex flex-row justify-center px-16 py-20 max-w-none bg-slate-300 dark:bg-slate-700 prose">
       {
         props.entries.map(entry => (
           <ErrorBoundary key={"Error Boundary, Reel: " + entry.title}>
-            <Card key={entry.title} {...entry} />
+            <ReelCard key={entry.title} {...entry} />
           </ErrorBoundary>
         ))
       }
-      <span className="shadow-xl shadow-2xl shadow-3xl shadow-4xl" />
     </section>
   )
 }
 
 export default Reel
 
-const Card = (props:IReelCard) => {
+const ReelCard = (props:IReelCard) => {
 
   return (
-    <div className="w-4/12 min-w-[240px] max-w-[360px] flex flex-col my-0 mx-4 rounded-2xl shadow-2xl overflow-hidden bg-white dark:bg-gradient-to-tr dark:bg-slate-300">
+    <div className="w-4/12 min-w-[240px] max-w-[360px] flex flex-col my-0 mx-4 rounded-2xl shadow-2xl overflow-hidden bg-white dark:bg-gradient-to-tr dark:bg-black prose dark:text-white">
       <a href={props.link ?? `#${props.title}`}>
         <img src={props.img_src} alt={props.title + '-alt'} 
           className="w-full h-[120px] m-0 border-b border-slate-600" 
         />
       </a>
 
-      <div className="py-2 px-2 h-full flex flex-col justify-between">
+      <div className="flex flex-col justify-between px-2 py-2 h-full">
         <div>
-          <h3>
+          <h3 className="dark:text-white">
             {props.title}
           </h3>
           <p>

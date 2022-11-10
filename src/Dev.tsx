@@ -6,9 +6,9 @@ const Dev = () => {
   return (
     <div>
       {/* <Header /> */}
-      <div className="w-1/2 p-8">
+      <div className="p-8 w-1/2">
 
-        <TechStack items={['Python', 'TypeScript', 'React', 'MATLAB', 'Sass', 'Tailwind', 'Redux', 'Arduino', 'IMU', 'Android' ]} />
+        <TechStack items={['Python', 'TypeScript', 'React', 'Go', 'MATLAB', 'Sass', 'Tailwind', 'Redux', 'Arduino', 'IMU', 'Android' ]} />
 
         {/* <TechStack items={['IMU']} /> */}
 
