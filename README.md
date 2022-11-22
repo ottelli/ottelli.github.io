@@ -1,5 +1,5 @@
 # Elliott Cheesman @ottelli
-Sports Technologist and Full-Stack Web Developer
+#### Sports Technologist and Full-Stack Web Developer
 
 ## Sports Technology
 * I specialise in wearable instrumentation such as IMUs
