@@ -5,43 +5,46 @@ import { ITimelineEntry } from "../components/Timeline"
 export const timeline_text:ITimelineEntry[] = [
   { title: 'Persistence',
     date: 'Jan 2022',
-    short: 'Training Calendar App',
-    question: 'Use a Bubble Calendar and a personal Lab to review and plan more activities',
+    description: 'Training Calendar App',
+    brief: '<b>Design Brief:</b> Create a training calendar, with review and planning. Use gathered data to generate and present insights visually.',
     stack: [
       'Python',
       'Flask',
+      'Go',
       'TypeScript',
       'React',
       'Redux',
       'Sass',
     ],
     method: {
-      'Backend Server': 'RESTful web API witten with the Flask microframework. SQLite ORM to manage the database.',
-      'Frontend UI': 'Progressive Web App built with React 18 function components, written in TypeScript, packaged with Vite, and hosted on Firebase.',
-      'Styles': 'Bootstrap -> Plan CSS -> Sass -> .module.css -> CSS-in-JS - (this site is with TailWind, my favourite is a 70-20-10 with Sass, .module, CSS-in-JS)',
+      'Backend': 'Starting with a <b>REST</b> API witten with the <b>Flask</b> microframework, I implemented an SQLite ORM to manage a <b>relational users database</b>, and a separate JSON <b>document database</b> for activities. Both are secured with <b>OAuth2.0</b> standard token authorization on an independant server written in <b>Go</b>. This project also required writing a file <b>parsing algorithm</b> to read data from Garmin watches.',
+      'Frontend': 'To deploy across devices and platforms from a single codebase, I made use of a <b>Progressive Web App</b> architecture. The UI is built with <b>React 18</b> function components, written in <b>TypeScript</b> and tested with <b>Jest</b>. I chose <b>Vite</b> as a build tool and hosted on <b>Firebase</b>, as these were both new tools to me that I had been looking for an opportunity to try out in a project. This project uses all custom components with <b>SCSS</b>. But in the design phase I used the Bootstrap library to plan out the interfaces.'
     },
     status: {
       'Progress': [
-        '',
+        'All back-end services are production ready.',
+        'Fully responsive design for Web and Mobile, with offline available on Mobile through PWA features.',
+        'All desired features implemented on the Calendar view, only edge case testing and fixes needed.',
+        'The Insights view is extensively planned, and wireframed. Core logic is working.'
       ],
       'Next': [
-        '',
+        'Minor functionalities and UX improvements to the Insights view.',
+        'At the moment, adding data to the app is done by direct upload. API integrations with larger platforms like Strava, Garmin, Apple Health etc. would reduce friction and aid adoption.'
       ],
     }
   },
-  { title: 'Rho Technologies Website',
+  { title: 'Rho Technologies',
     date: 'Oct 2022',
-    short: 'Business Website',
-    question: '?',
+    description: 'Business Website',
+    brief: '<b>Design Brief:</b> Design and build an eye-catching business website for advertising products and gaining customers.',
     stack: [
-      'Go',
+
       'TypeScript',
       'React',
       'Tailwind',
     ],
     method: {
-      'Backend API': 'Written in Go with the Gin web framework.',
-      'Frontend UI': 'Written in TypeScript with React, packaged with Webpack, styled with TailwindCSS, hosted on Firebase.',
+      'Implemention': 'I decided to build this site with the <b>NextJS</b> framework to take advantage of optional API routes, as only contact form submissions are required on day-one, with scope for adding more functionality as needed, such as content delivery for marketing materials, how-to videos or handling support tickets. Clean and repsonsive design viewable cross-platform, with reusable product pages. The site is built with NextJS, styled with TailwindCSS, hosted on Firebase.',
     },
     status: {
       'Progress': '',
@@ -50,8 +53,8 @@ export const timeline_text:ITimelineEntry[] = [
   },
   { title: 'First Python Code',
     date: 'Nov 2019',
-    short: 'El Presidente, my favourite card game, on the command line!',
-    question: 'How is this even possible?',
+    description: 'El Presidente, my favourite card game, on the command line!',
+    brief: 'How is this even possible?',
     stack: [
       'Python',
     ],
@@ -69,8 +72,8 @@ export const timeline_text:ITimelineEntry[] = [
   },
   { title: 'Masters Degree Thesis Project',
     date: 'Jun 2018',
-    short: 'MSc Sports Engineering with Distinction',
-    question: 'Can non-linearities in gait predict running economy?',
+    description: 'MSc Sports Engineering with Distinction',
+    brief: '<b>Research Question:</b> Can non-linearities in gait predict running economy?',
     stack: [
       'IMU',
       'MATLAB',
@@ -91,14 +94,14 @@ export const timeline_text:ITimelineEntry[] = [
   },
   { title: 'FeedBack',
     date: 'Mar 2018',
-    short: 'Innovation & Enterprise Team Project',
-    question: 'How to prevent back injuries from deadlifting?',
+    description: 'Innovation & Enterprise Team Project',
+    brief: '<b>Design Brief:</b> How to prevent back injuries from deadlifting?',
     stack: [
       'Android',
       'MATLAB',
     ],
     method: {
-      'Brief': 'Help a sports injury, with technology.',
+      'Task': 'Help a sports injury, with technology.',
       'Solution': 'A camera purchased by gyms, placed to the side when deadlifting. Together with an Android app to give live feedback and record sessions.',
       'Team Role': 'I handled the financial plan and app design',
     },
@@ -111,8 +114,8 @@ export const timeline_text:ITimelineEntry[] = [
   },
   { title: 'Matlab Table Tennis Simulator',
     date: 'Dec 2017',
-    short: 'Mechanics of Sports Equipment Project',
-    question: 'Would Table Tennis be more entertaining on a bigger table?',
+    description: 'Mechanics of Sports Equipment Project',
+    brief: '<b>Research Question:</b> Would Table Tennis be more entertaining on a bigger table?',
     stack: [
       'MATLAB',
     ],
@@ -134,8 +137,8 @@ export const timeline_text:ITimelineEntry[] = [
   },
   { title: 'Bachelors Degree Dissertation',
     date: 'Apr 2017',
-    short: 'BEng Sports Technology with First Class Honours',
-    question: 'How does shoe choice effect lower limb [shock / vibrations] while running?',
+    description: 'BEng Sports Technology with First Class Honours',
+    brief: '<b>Research Question:</b> How does shoe choice effect lower limb [shock / vibrations] while running?',
     stack: [
       'IMU',
       'Arduino',

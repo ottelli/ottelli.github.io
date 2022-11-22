@@ -1,5 +1,11 @@
 const reel_text = [
   {
+    title: 'Overhaul this section',
+    img_src: 'assets/yyy',
+    stack: [],
+    description: 'This should be more of a blurb, about type thing. Maybe a card each for About, Sports Technologist, Web Developer'
+  },
+  {
     title: 'Persistence',
     img_src: 'assets/persistence-brand.svg',
     link: 'https://persistence.rhotech.app',

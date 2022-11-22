@@ -6,8 +6,8 @@ const Footer = () => {
   const [ contactVisible, setContactVisible ] = useState(false)
 
   return (
-    <footer className="flex flex-col justify-start px-12 py-4 border-t-2 border-violet-800 prose">
-      <h3 onClick={() => setContactVisible(true)}>
+    <footer className="flex flex-col justify-start px-12 py-4 border-t-2 border-violet-800 prose max-w-none">
+      <h3 onClick={() => setContactVisible(true)} className="cursor-pointer">
         Contact Me
       </h3>
       <ContactModal 

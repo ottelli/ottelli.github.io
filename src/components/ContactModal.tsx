@@ -24,6 +24,8 @@ const ContactModal = ({ visible, closeModal }: {
           onClick={() => closeModal()}>
             X
         </div>
+
+        <h4><a href="/cv"className="font-bold">My CV</a></h4>
       </div>
     </div>
   )

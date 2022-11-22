@@ -1,4 +1,5 @@
 import DOMPurify from "dompurify"
+import { useId } from "react"
 import useIntersectionObserver from "../hooks/useIntersectionObserver"
 import ErrorBoundary from "../utils/ErrorBoundary"
 import TechStack from "./TechStack"
@@ -7,15 +8,15 @@ import TechStack from "./TechStack"
 export interface ITimelineEntry {
   title: string
   date: string
-  short: string
-  question: string
+  description: string
+  brief: string
   stack: string[]
   method: ITimelineEntryMethod
   status: ITimelineEntryStatus
 }
 
 interface ITimelineEntryMethod {
-  [step:string]:string|string[]
+  [step:string]:string
 }
 
 interface ITimelineEntryStatus {
@@ -27,7 +28,7 @@ interface ITimelineEntryStatus {
 const Timeline = ({ entries }: { entries:ITimelineEntry[] }) => {
 
   return (
-    <section className="flex overflow-hidden flex-col items-center px-4 py-8 w-full max-w-none bg-violet-50 prose dark:prose-invert prose-headings prose-p dark:bg-slate-900">
+    <section className="flex overflow-hidden flex-col items-center px-4 py-8 w-full max-w-none bg-white prose dark:prose-invert prose-headings prose-p dark:bg-slate-900">
       <h1>
         Projects
       </h1>
@@ -57,7 +58,7 @@ const TimelineCard = ({ entry, index }:{ entry: ITimelineEntry, index:number }) 
     <div ref={containerRef} className={`w-10/12 grid grid-cols-5 grid-auto-rows items-center
       my-4 mx-0 rounded-3xl p-4 px-0 transition transform duration-500 
       ${isVisible || index===0 ? 
-        'opacity-100 -transform-x-1/2 bg-gradient-to-tr from-red-300 via-slate-300 to-blue-200 shadow-xl' 
+        'opacity-100 -transform-x-1/2 bg-gradient-to-tr from-red-200 via-slate-100 to-blue-100 dark:from-red-300 dark:via-slate-200 dark:to-blue-300 shadow-xl' 
         : 
         'opacity-0 translate-x-1/2 bg-white'
       }
@@ -73,16 +74,16 @@ const TimelineCard = ({ entry, index }:{ entry: ITimelineEntry, index:number }) 
 
       {/* First Row */}
 
-      <h4 className="col-start-1 col-end-2 justify-self-center p-1 my-2 w-2/3 font-normal text-center text-white bg-gradient-to-tr from-green-700 to-green-500 rounded shadow-md shadow-green-300 dark:shadow-slate-900">
+      <h4 className="col-start-1 col-end-2 justify-self-center p-1 my-2 w-2/3 font-normal text-center text-white bg-gradient-to-tr from-green-700 to-green-500 rounded shadow-md shadow-green-100 dark:shadow-slate-900">
         {entry.date}
       </h4>
 
-      <h2 className="col-start-2 col-end-3 font-normal dark:text-slate-800">
+      <h2 className="col-start-2 col-end-4 font-normal dark:text-slate-800">
         {entry.title}
       </h2>
 
-      <h3 className="col-start-3 col-end-6 mr-8 italic font-light text-right dark:text-slate-800">
-        {entry.short}
+      <h3 className="col-start-4 col-end-6 mr-8 italic font-light text-right dark:text-slate-800">
+        {entry.description}
       </h3>
 
 
@@ -91,9 +92,7 @@ const TimelineCard = ({ entry, index }:{ entry: ITimelineEntry, index:number }) 
 
       {/* Second Content Row */}
 
-      <h6 className="col-start-1 col-end-3 m-4">
-        <b>Question:</b> {entry.question}
-      </h6>
+      <h6 className="col-start-1 col-end-3 m-4" dangerouslySetInnerHTML={{__html: DOMPurify.sanitize(entry.brief)}}></h6>
 
       <div className="col-start-3 col-end-6">
         <TechStack items={entry.stack} />
@@ -116,28 +115,24 @@ const TimelineCard = ({ entry, index }:{ entry: ITimelineEntry, index:number }) 
 }
 
 
-const Method = (props:ITimelineEntryMethod) => (
-  <div className="flex flex-col h-full prose">
-    {
-      Object.entries(props).map(([name, text]) => (
-        <>
-          <h5 key={name + '-title'} className="italic font-bold">{name}</h5>
-          {
-            text instanceof Array // 'Stack'
-            ?
-            <div key={name + '-stack'} className="mb-6">
-              <TechStack key={name + '-stack-proper'} items={text} />
-            </div>
-            :
-            <p key={name + '-text'} className="mt-0" 
+const Method = (props:ITimelineEntryMethod) => {
+  const id = useId()
+
+  return (
+    <div className="flex flex-col justify-evenly h-full prose">
+      {
+        Object.entries(props).map(([name, text]) => (
+          <div key={id + name + '-container'}>
+            <h5 key={id + name + '-title'} className="italic font-bold">{name}</h5>
+            <p key={id + name + '-text'} className="mt-0" 
               dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(text) }}
             ></p>
-          }
-        </>
-      ))
-    }
-  </div>
-)
+          </div>
+        ))
+      }
+    </div>
+  )
+}
 
 
 const ProjectStatus = (props:ITimelineEntryStatus) => {

@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 
 import App from './App';
 import Dev from './Dev';
+import CV from './CV';
 import ContactPage from './components/ContactModal';
 
 const root = ReactDOM.createRoot(
@@ -20,6 +21,7 @@ root.render(
           <Route path="*" element={<h5>404 - Nothing here</h5>} />
         </Route>
         <Route path="/dev" element={<Dev />} />
+        <Route path="/cv" element={<CV />} />
       </Routes>
     </BrowserRouter>
   </React.StrictMode>

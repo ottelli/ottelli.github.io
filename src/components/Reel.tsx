@@ -12,7 +12,7 @@ interface IReelCard {
 const Reel = (props:{ entries: IReelCard[] }) => {
 
   return (
-    <section className="flex flex-row justify-center px-16 py-20 max-w-none bg-slate-300 dark:bg-slate-700 prose">
+    <section className="flex flex-row flex-wrap justify-center px-16 py-16 max-w-none bg-blue-100 dark:bg-slate-700 prose">
       {
         props.entries.map(entry => (
           <ErrorBoundary key={"Error Boundary, Reel: " + entry.title}>
@@ -29,7 +29,7 @@ export default Reel
 const ReelCard = (props:IReelCard) => {
 
   return (
-    <div className="w-4/12 min-w-[240px] max-w-[360px] flex flex-col my-0 mx-4 rounded-2xl shadow-2xl overflow-hidden bg-white dark:bg-gradient-to-tr dark:bg-black prose dark:text-white">
+    <div className="w-4/12 min-w-[240px] max-w-[300px] flex flex-col my-4 mx-4 rounded-2xl shadow-2xl overflow-hidden bg-white dark:bg-gradient-to-tr dark:bg-black prose dark:text-white">
       <a href={props.link ?? `#${props.title}`}>
         <img src={props.img_src} alt={props.title + '-alt'} 
           className="w-full h-[120px] m-0 border-b border-slate-600" 
