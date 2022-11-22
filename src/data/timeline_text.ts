@@ -143,12 +143,12 @@ export const timeline_text:ITimelineEntry[] = [
     ],
     method: {
       'Experiment': 'I recruited [n] people to run 3 laps of ~12min around a local park. Each time wearing a different design of shoe. Using an IMU, I measured accelerations at the top of the shin.',
-      'Analysis': 'I wrote a MATLAB script to; apply a high- and low-pass filter, detect peaks, and plot the result.<br />To model the effects on the bones, I constructed a free body diagram, and input values from medical journal papers.<br />Finally, I conducted a factorial analysis, [with factors such as] bone density, weight, speed of bone remodelling... , to provide context for the differences in shock between the shoes.',
+      'Analysis': 'I wrote a MATLAB script to; apply a high- and low-pass filter, detect peaks, and plot the result.<br/>To model the effects on the bones, I constructed a free body diagram, and input values from medical journal papers.<br/>Finally, I conducted a factorial analysis, [with factors such as] bone density, weight, speed of bone remodelling... , to provide context for the differences in shock between the shoes.',
     },
     status: {
       'Conclusion': [
         'More foam on the shoe, less shock through the shin',
-        'Materials are <strong>very</strong> important',
+        'Materials are <b>very</b> important',
         'Shoes are the [x] principal component, and account for [y]% of the variance in total strain on the lower leg.'
       ],
       'Reflection': [

@@ -12,6 +12,7 @@
     "@types/node": "^18.11.3",
     "@types/react": "^18.0.21",
     "@types/react-dom": "^18.0.6",
+    "dompurify": "^2.4.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
@@ -19,8 +20,8 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "dev": "concurrently \"npm run dev:css\" \"react-scripts start\"",
-    "dev:css": "TAILWIND_MODE=watch tailwindcss -o ./public/styles.css --watch",
+    "dev": "react-scripts start",
+    "dev:css": "postcss ./src/tailwind.css -o ./public/styles.css --watch",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
@@ -45,6 +46,7 @@
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.7",
+    "@types/dompurify": "^2.3.4",
     "autoprefixer": "^10.4.12",
     "concurrently": "^7.5.0",
     "postcss": "^8.4.18",

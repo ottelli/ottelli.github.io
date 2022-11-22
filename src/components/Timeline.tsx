@@ -1,4 +1,4 @@
-import { useEffect } from "react"
+import DOMPurify from "dompurify"
 import useIntersectionObserver from "../hooks/useIntersectionObserver"
 import ErrorBoundary from "../utils/ErrorBoundary"
 import TechStack from "./TechStack"
@@ -27,14 +27,14 @@ interface ITimelineEntryStatus {
 const Timeline = ({ entries }: { entries:ITimelineEntry[] }) => {
 
   return (
-    <section className="w-full overflow-hidden flex flex-col items-center px-4 py-8 prose max-w-none dark:prose-invert prose-headings prose-p bg-violet-50 dark:bg-slate-900">
+    <section className="flex overflow-hidden flex-col items-center px-4 py-8 w-full max-w-none bg-violet-50 prose dark:prose-invert prose-headings prose-p dark:bg-slate-900">
       <h1>
-        Timeline
+        Projects
       </h1>
       {
         entries.map((entry, idx) => (
           <ErrorBoundary key={"Error Rendering: " + entry.title}>
-            <TimelineEntry key={entry.title} index={idx} entry={entry} />
+            <TimelineCard key={entry.title} index={idx} entry={entry} />
           </ErrorBoundary>
         ))
       }
@@ -45,7 +45,7 @@ const Timeline = ({ entries }: { entries:ITimelineEntry[] }) => {
 export default Timeline
 
 
-const TimelineEntry = ({ entry, index }:{ entry: ITimelineEntry, index:number }) => {
+const TimelineCard = ({ entry, index }:{ entry: ITimelineEntry, index:number }) => {
 
   const { containerRef, isVisible } = useIntersectionObserver({
     root: null,
@@ -53,16 +53,9 @@ const TimelineEntry = ({ entry, index }:{ entry: ITimelineEntry, index:number })
     threshold: 0.3
   })
 
-  
-  // useEffect(() => {
-  //   console.log(containerRef.current?.getBoundingClientRect())
-
-  // }, [isVisible])
-
   return (
     <div ref={containerRef} className={`w-10/12 grid grid-cols-5 grid-auto-rows items-center
-      my-4 mx-0 rounded-3xl p-4 px-0 
-      transform transition-opacity transition-colors transition-transform duration-500 
+      my-4 mx-0 rounded-3xl p-4 px-0 transition transform duration-500 
       ${isVisible || index===0 ? 
         'opacity-100 -transform-x-1/2 bg-gradient-to-tr from-red-300 via-slate-300 to-blue-200 shadow-xl' 
         : 
@@ -80,7 +73,7 @@ const TimelineEntry = ({ entry, index }:{ entry: ITimelineEntry, index:number })
 
       {/* First Row */}
 
-      <h4 className="col-start-1 col-end-2 w-2/3 justify-self-center my-2 p-1 rounded text-center font-normal text-white bg-gradient-to-tr from-green-700 to-green-500 shadow-md shadow-green-300 dark:shadow-slate-900">
+      <h4 className="col-start-1 col-end-2 justify-self-center p-1 my-2 w-2/3 font-normal text-center text-white bg-gradient-to-tr from-green-700 to-green-500 rounded shadow-md shadow-green-300 dark:shadow-slate-900">
         {entry.date}
       </h4>
 
@@ -88,7 +81,7 @@ const TimelineEntry = ({ entry, index }:{ entry: ITimelineEntry, index:number })
         {entry.title}
       </h2>
 
-      <h3 className="col-start-3 col-end-6 mr-8 text-right font-light italic  dark:text-slate-800">
+      <h3 className="col-start-3 col-end-6 mr-8 italic font-light text-right dark:text-slate-800">
         {entry.short}
       </h3>
 
@@ -111,11 +104,11 @@ const TimelineEntry = ({ entry, index }:{ entry: ITimelineEntry, index:number })
 
       {/* Third Content Row */}
 
-      <div className="col-start-1 col-end-4 h-full mx-4">
+      <div className="col-start-1 col-end-4 mx-4 h-full">
         <Method {...entry.method} />
       </div>
 
-      <div className="col-start-4 col-end-6 h-full mx-4">
+      <div className="col-start-4 col-end-6 mx-4 h-full">
         <ProjectStatus {...entry.status} />
       </div>
     </div>
@@ -124,11 +117,11 @@ const TimelineEntry = ({ entry, index }:{ entry: ITimelineEntry, index:number })
 
 
 const Method = (props:ITimelineEntryMethod) => (
-  <div className="h-full flex flex-col prose">
+  <div className="flex flex-col h-full prose">
     {
       Object.entries(props).map(([name, text]) => (
         <>
-          <h5 key={name + '-title'} className="font-bold italic">{name}</h5>
+          <h5 key={name + '-title'} className="italic font-bold">{name}</h5>
           {
             text instanceof Array // 'Stack'
             ?
@@ -136,7 +129,9 @@ const Method = (props:ITimelineEntryMethod) => (
               <TechStack key={name + '-stack-proper'} items={text} />
             </div>
             :
-            <p key={name + '-text'} className="mt-0">{text}</p>
+            <p key={name + '-text'} className="mt-0" 
+              dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(text) }}
+            ></p>
           }
         </>
       ))
@@ -148,7 +143,7 @@ const Method = (props:ITimelineEntryMethod) => (
 const ProjectStatus = (props:ITimelineEntryStatus) => {
   
   return (
-    <div className="h-full flex flex-col justify-evenly pl-4 border-l border-slate-400 dark:border-slate-600 prose">
+    <div className="flex flex-col justify-evenly pl-4 h-full border-l border-slate-400 dark:border-slate-600 prose">
       {
         Object.entries(props).map(([name, text]) => (
           <div key={name}>
@@ -156,16 +151,16 @@ const ProjectStatus = (props:ITimelineEntryStatus) => {
             {
               text instanceof Array
               ?
-              <ul className="list-none list-inside m-0 p-0">
+              <ul className="p-0 m-0 list-none list-inside">
                 {text.map((point, i) => (
                     <li key={i} className="relative flex pl-[20px]">
                       <svg className="absolute left-0 top-[6px]" fill="currentColor" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512" width="12"><path d="M342.6 233.4c12.5 12.5 12.5 32.8 0 45.3l-192 192c-12.5 12.5-32.8 12.5-45.3 0s-12.5-32.8 0-45.3L274.7 256 105.4 86.6c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0l192 192z"/></svg>
-                      {point}
+                      <p className="m-0" dangerouslySetInnerHTML={{__html:DOMPurify.sanitize(point)}}></p>
                     </li>
                 ))}
               </ul>
               :
-              <p>{text}</p>
+              <p dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(text)}}></p>
             }
           </div>
         ))
