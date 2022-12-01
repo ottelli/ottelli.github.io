@@ -13,7 +13,7 @@ const Header = () => {
         Elliott Cheesman
       </h1>
       <h5 className="italic text-slate-400 dark:text-slate-200">
-        Sports Technologist <b>//</b> Full-Stack Web Developer
+        Sports Engineer <b>//</b> Full-Stack Web Developer
       </h5>
 
       <div className="absolute top-6 right-6 w-8 h-8">
