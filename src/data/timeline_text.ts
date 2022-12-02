@@ -68,7 +68,7 @@ export const timeline_text: ITimelineEntry[] = [
     },
   },
   {
-    title: "IMUs for Gait Non-Linearities & Skill",
+    title: "IMUs for Gait Variability and Efficiency",
     date: "Jun 2018",
     description: "Masters thesis project",
     brief:
