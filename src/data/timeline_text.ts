@@ -9,21 +9,22 @@ export const timeline_text: ITimelineEntry[] = [
       "<b>Design Brief:</b> Create a training calendar, with review and planning. Use gathered data to generate and present insights visually.",
     stack: ["Python", "Flask", "Go", "TypeScript", "React", "Redux", "Sass"],
     method: {
-      Backend:
-        "Starting with a <b>REST</b> API witten with the <b>Flask</b> microframework, I implemented an SQLite ORM to manage a <b>relational users database</b>, and a separate JSON <b>document database</b> for activities. Both are secured with <b>OAuth2.0</b> standard token authorization on an independant server written in <b>Go</b>. This project also required writing a file <b>parsing algorithm</b> to read data from Garmin watches.",
-      Frontend:
-        "To deploy across devices and platforms from a single codebase, I made use of a <b>Progressive Web App</b> architecture. The UI is built with <b>React 18</b> function components, written in <b>TypeScript</b> and tested with <b>Jest</b>. I chose <b>Vite</b> as a build tool and hosted on <b>Firebase</b>, as these were both new tools to me that I had been looking for an opportunity to try out in a project. This project uses all custom components with <b>SCSS</b>. But in the design phase I used the Bootstrap library to plan out the interfaces.",
+      Beginnings:
+        "The project started as a Python + Flask app serving static HTML. I started my JavaScript learning by customising Bootstrap components then, as I became comfortable with the syntax, using the DOM for my own components and events. The gap in knowledge and practise between the first and current features soon grew too wide for practical development, making a fresh start of an improved project inevitable.",
+      "Evolved State":
+        "Now, <i>Persistence</i> is a TypeScript + React project delivered as a Progressive Web App available cross-platform with mobile installation via bookmark. It's built and bundled with Vite and hosted on Firebase. It features an interactive graphical training calendar with extensive planning features, built from all custom components and fully responsive layouts with Sass. The back-end is still Python + Flask, but is now implimented as a REST API featuring token authentication and connection to a relational database with MySQL. I also separated file parsing into an independent microservice, which features my parsing algorithm and document storage protocol for the sportswatch data that powers the app. ",
     },
     status: {
       Progress: [
         "All back-end services are production ready.",
         "Fully responsive design for Web and Mobile, with offline available on Mobile through PWA features.",
         "All desired features implemented on the Calendar view, only edge case testing and fixes needed.",
-        "The Insights view is fully scoped, and wireframed.",
+        "The Insights view is fully scoped and wireframed, and I'm working on the core logic and data structures.",
       ],
       Next: [
-        "Core logic and UI for the Insights view.",
+        "A polished UI for the Insights view.",
         "At the moment, adding data to the app is done by direct upload. API integrations with larger platforms like Strava, Garmin, Apple Health etc. would reduce friction and aid adoption.",
+        "Analyses with temporal information algorithms I've previously used in research, and more personalised feedback with automated classifiers.",
       ],
     },
   },
