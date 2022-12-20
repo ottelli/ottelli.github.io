@@ -64,8 +64,8 @@ const TimelineCard = ({
   return (
     <div
       ref={containerRef}
-      className={`my-4 mx-0 flex w-10/12 
-      transform flex-col  items-center rounded-3xl p-4 px-0 transition duration-500 sm:w-full
+      className={`my-4 mx-0 flex w-full 
+      transform flex-col items-center rounded-3xl p-4 px-0 transition duration-500 sm:w-10/12 md:w-8/12
       ${
         isVisible || index === 0
           ? "-transform-x-1/2 dark:via-indigp-200 bg-gradient-to-tr from-purple-200 via-indigo-100 to-blue-100 opacity-100 shadow-xl dark:from-purple-300 dark:to-blue-300"
@@ -93,7 +93,7 @@ const TimelineCard = ({
 
       <h2 className='mt-2 font-normal dark:text-slate-800'>{entry.title}</h2>
 
-      <h3 className='text-right font-light italic dark:text-slate-800'>
+      <h3 className='text-center font-light italic dark:text-slate-800'>
         {entry.description}
       </h3>
 
