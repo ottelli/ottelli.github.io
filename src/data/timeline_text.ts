@@ -1,4 +1,4 @@
-import { ITimelineEntry } from "../components/Timeline";
+import { ITimelineEntry } from "../components/Timeline"
 
 export const timeline_text: ITimelineEntry[] = [
   {
@@ -12,7 +12,7 @@ export const timeline_text: ITimelineEntry[] = [
       Beginnings:
         "The project started as a Python + Flask app serving static HTML. I started my JavaScript learning by customising Bootstrap components then, as I became comfortable with the syntax, using the DOM for my own components and events. The gap in knowledge and practise between the first and current features soon grew too wide for practical development, making a fresh start of an improved project inevitable.",
       "Evolved State":
-        "Now, <i>Persistence</i> is a TypeScript + React project delivered as a Progressive Web App available cross-platform with mobile installation via bookmark. It's built and bundled with Vite and hosted on Firebase. It features an interactive graphical training calendar with extensive planning features, built from all custom components and fully responsive layouts with Sass. The back-end is still Python + Flask, but is now implimented as a REST API featuring token authentication and connection to a relational database with MySQL. I also separated file parsing into an independent microservice, which features my parsing algorithm and document storage protocol for the sportswatch data that powers the app. ",
+        "Now, <i>Persistence</i> is a TypeScript + React project delivered as a Progressive Web App available cross-platform with mobile installation via bookmark. It's built and bundled with Vite and hosted on Netlify. It features an interactive graphical training calendar with extensive planning features, built from all custom components and fully responsive layouts with Sass. The back-end is still Python + Flask, but is now implimented as a REST API featuring token authentication and connection to a relational database with MySQL. I also separated file parsing into an independent microservice, which features my parsing algorithm and document storage protocol for the sportswatch data that powers the app. ",
     },
     status: {
       Progress: [
@@ -21,7 +21,7 @@ export const timeline_text: ITimelineEntry[] = [
         "All desired features implemented on the Calendar view, only edge case testing and fixes needed.",
         "The Insights view is fully scoped and wireframed, and I'm working on the core logic and data structures.",
       ],
-      Next: [
+      "Next Steps": [
         "A polished UI for the Insights view.",
         "At the moment, adding data to the app is done by direct upload. API integrations with larger platforms like Strava, Garmin, Apple Health etc. would reduce friction and aid adoption.",
         "Analyses with temporal information algorithms I've previously used in research, and more personalised feedback with automated classifiers.",
@@ -33,15 +33,19 @@ export const timeline_text: ITimelineEntry[] = [
     date: "Oct 2022",
     description: "Business website",
     brief:
-      "<b>Design Brief:</b> Design and build an eye-catching business website for advertising products and gaining customers.",
+      "<b>Design Brief:</b> Design and build a simple landing page for a new business.",
     stack: ["TypeScript", "React", "Tailwind"],
     method: {
       Implemention:
-        "I decided to build this site with the <b>NextJS</b> framework to take advantage of optional API routes, as only contact form submissions are required on day-one, with scope for adding more functionality as needed, such as content delivery for marketing materials, or handling support tickets.<br/>Clean and repsonsive design viewable cross-platform, with reusable product pages. The site is built with NextJS, styled with TailwindCSS, hosted on Firebase.",
+        "I decided to build this site with the <b>NextJS</b> framework to take advantage of optional API routes, as only contact form submissions are required on day-one, with scope for adding more functionality as needed, such as content delivery for marketing materials, or handling support tickets. As this is a small project, I used TailwindCSS to style it with utility classes rather than building up a component library.",
     },
     status: {
-      Progress: "",
-      Next: "",
+      Progress: [
+        "The site is live through Firebase, <a href='https://rho-technologies.com'>here</a>.",
+      ],
+      "Next Steps": [
+        "As more products and services are released, a product page template will be needed.",
+      ],
     },
   },
   {
@@ -49,7 +53,7 @@ export const timeline_text: ITimelineEntry[] = [
     date: "Nov 2019",
     description: "My favourite card game, on the command line",
     brief:
-      "<b>Design Brief:</b>Build a game with all the rules and gameplay features of the real thing.",
+      "<b>Design Brief:</b> Build a game with all the rules and gameplay features of the real thing.",
     stack: ["Python"],
     method: {
       Gameplay:
@@ -147,6 +151,6 @@ export const timeline_text: ITimelineEntry[] = [
       Reflection: [""],
     },
   },
-];
+]
 
-export default timeline_text;
+export default timeline_text
