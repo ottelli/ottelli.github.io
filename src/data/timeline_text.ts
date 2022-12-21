@@ -16,6 +16,7 @@ export const timeline_text: ITimelineEntry[] = [
     },
     status: {
       Progress: [
+        "<a href='https://persistence.rhotech.app/about'>Go to the app</a>",
         "All back-end services are production ready.",
         "Fully responsive design for Web and Mobile, with offline available on Mobile through PWA features.",
         "All desired features implemented on the Calendar view, only edge case testing and fixes needed.",
