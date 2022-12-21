@@ -42,7 +42,8 @@ export const timeline_text: ITimelineEntry[] = [
     },
     status: {
       Progress: [
-        "The site is live through Firebase, <a href='https://rho-technologies.com'>here</a>.",
+        "<a href='https://rho-technologies.com'>Go to the site</a>",
+        "The site is live through Firebase",
       ],
       "Next Steps": [
         "As more products and services are released, a product page template will be needed.",
