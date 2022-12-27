@@ -1,15 +1,15 @@
-import { useState } from "react"
-import ContactModal from "./ContactModal"
+// import { useState } from "react"
+// import ContactModal from "./ContactModal"
 import DarkBtn from "./DarkBtn"
 
 const Header = () => {
-  const [contactVisible, setContactVisible] = useState(false)
+  // const [contactVisible, setContactVisible] = useState(false)
 
   return (
     <header className='prose relative flex max-w-none flex-col items-center bg-white py-20 dark:bg-slate-500'>
       <h1
         className='cursor-pointer text-[2.5rem]'
-        onClick={() => setContactVisible(true)}
+        // onClick={() => setContactVisible(true)}
       >
         Elliott Cheesman
       </h1>
@@ -19,7 +19,7 @@ const Header = () => {
 
       <div className='absolute top-6 right-12 '>
         <div className='flex h-8 flex-row'>
-          <svg
+          {/* <svg
             xmlns='http://www.w3.org/2000/svg'
             height='100%'
             fill='currentColor'
@@ -28,15 +28,15 @@ const Header = () => {
             onClick={() => setContactVisible(true)}
           >
             <path d='M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 11.105V5.383Zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741ZM1 11.105l4.708-2.897L1 5.383v5.722Z' />
-          </svg>
+          </svg> */}
           <DarkBtn />
         </div>
       </div>
 
-      <ContactModal
+      {/* <ContactModal
         visible={contactVisible}
         closeModal={() => setContactVisible(false)}
-      />
+      /> */}
     </header>
   )
 }
